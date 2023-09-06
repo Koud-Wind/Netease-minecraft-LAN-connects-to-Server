@@ -18,7 +18,7 @@
 注意: 如果你想前往其他玩家的网易局域网, 需要将 C:\MCLDownload\cache\game\V_1_12_2\mods 重命名为 mods1 .
 
 
---1.16.4 (不可使用forge端)
+--1.16.4 (服务端不可以为forge端)
 
 1. 修改游戏文件, 前往 C:\MCLDownload\Game\.minecraft\libraries\net\minecraftforge\forge\1.16.4-35.1.4 文件夹中, 将文件夹中的3个jar文件换成库中的 (在forge文件夹内) , 这是在更换forge版本. 前往 C:\MCLDownload\Game\.minecraft\versions\1.16 文件夹中, 将 1.16.jar换成库内文件 (1.16.5文件夹中) , 这是在将1.16.4换为1.16.5, 以上文件均不得重命名.
 
@@ -31,7 +31,7 @@
 
 
 
---1.18.1 (不可使用forge端)
+--1.18.1 (服务端不可以为forge端)
 
 1. 利用网易的自动加载文件夹, 将 300@3@16.jar 和 301@3@16.jar 文件放到 C:\MCLDownload\cache\game\V_1_18\mods 内. 来到网易的联机页面, 关闭局域网游戏内的Operator(1.13+)组件 (换用更高版本) , 启动游戏, 进人地图后退出游戏, 打开网易游戏文件夹中的config文件夹, 有 serverGlobalConfig.properties 文件, 用记事本打开并配置好端口, 记得保存, 将这个文件放到 C:\MCLDownload\cache\game\V_1_18\config . (懒人操作: 再新建一个局域网存档) 前往你刚才启动游戏的存档, 去删掉 server.properties .
 
