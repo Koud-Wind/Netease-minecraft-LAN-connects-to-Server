@@ -13,26 +13,23 @@
 **1.** 编写一个便于删除网易模组的bat脚本, 其中 `C:\MCLDownload\` 路径会因人而异, **需要修改**
 
 ```
-:1.12.2
-del C:\MCLDownload\Game\.minecraft\mods\4663899962476874551@3@0.jar
-del C:\MCLDownload\Game\.minecraft\mods\4660517239835890561@3@0.jar
-del C:\MCLDownload\Game\.minecraft\mods\4640208094372507127@3@0.jar
-del C:\MCLDownload\Game\.minecraft\mods\4624104029891423116@3@0.jar
-del C:\MCLDownload\Game\.minecraft\mods\4624104029872303148@3@0.jar
-del C:\MCLDownload\Game\.minecraft\mods\4621632218832071536@3@0.jar
-del C:\MCLDownload\Game\.minecraft\mods\4620702976810361335@3@0.jar
-del C:\MCLDownload\Game\.minecraft\mods\4620273834210283309@3@0.jar
-del C:\MCLDownload\Game\.minecraft\mods\4641449394569051656@3@0.jar
 
-:1.12.2附加: 1221@3@16与1222@3@16尚未修改过, 如果你想加载这两个模组那么就删除下面的分号, 否则就不用加载1221@3@16与1222@3@16!
-:del C:\MCLDownload\Game\.minecraft\mods\4620273834451558259@3@0.jar
-:del C:\MCLDownload\Game\.minecraft\mods\4626894585322620077@3@0.jar
+:1.12.2附加: 使用此脚本需要装载1221@3@16与1222@3@16
+@echo off
+setlocal enabledelayedexpansion
 
-:1.16.4
-del C:\MCLDownload\Game\.minecraft\mods\4669009090626031735@3@0.jar
+REM 下面是网易模组目录
+set "targetDir=C:\MCLDownload\Game\.minecraft\mods"
 
-:1.18.1
-del C:\MCLDownload\Game\.minecraft\mods\4669009105253246151@3@0.jar
+for %%F in ("%targetDir%\*") do (
+    set "fileName=%%~nF"
+    REM 名称末尾为@0就会删除
+    if "!fileName:~-2!"=="@0" (
+        del "%%F"
+    )
+)
+
+endlocal
 
 ```
 
@@ -51,9 +48,10 @@ del C:\MCLDownload\Game\.minecraft\mods\4669009105253246151@3@0.jar
 + `V_1_12_2 对应 1.12.2`
   `V_1_16 对应 1.16.4`
   `V_1_18 对应 1.18.1`
+  `V_1_20 对应 1.20.1`
 + 请勿过早运行bat文件, 否则将会停止启动游戏
 + 如果退出地图时客户端未响应, 需要重启游戏
-+ 如果你打算对接forge服务端 (除1.12.2), 需要向forge服务端加载对接专用模组, 非网易端的玩家也需要加载对接专用模组
++ 如果你打算对接forge服务端 (除1.12.2/1.20.1), 需要向forge服务端加载对接专用模组, 非网易端的玩家也需要加载对接专用模组
 + 1.12.2版本若不进行任何对接 (普通的网易局域网游戏), 在局域网端口没有固定为对接端口号的情况下网易玩家将无法进入
 + 除1.12.2版本外均无法使用局域网端口模组来修改局域网端口号, 各版本也均无法使用模组来修改对接端口号
   
