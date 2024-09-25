@@ -32,7 +32,7 @@ endlocal
 
 ```
 
-**2.** 进入 `\MCLDownload\cache\game` 路径, 其中像 `V_1_??` 这样命名的文件夹能够在进入对应版本游戏时将这个文件夹内的文件覆盖到 `\MCLDownload\Game\.minecraft\` , 所以需要在`\MCLDownload\cache\game\V_1_??\`中新建一个`mods`文件夹, 并放入在这里下载好的模组
+**2.** 进入 `\MCLDownload\cache\game` 路径, 其中像 `V_1_??` 这样命名的文件夹能够在进入对应版本游戏时将这个文件夹内的文件覆盖到 `\MCLDownload\Game\.minecraft\` , 所以需要在`\MCLDownload\cache\game\V_1_??\`中新建一个`mods`文件夹, 并放入**在这里下载好的模组**
 
 **3.** 确保对接端口号没有占用的情况下, 启动局域网游戏, 当网易进度条加载到 `90%` 时运行你修改好的bat文件, 并等待进入地图
 
