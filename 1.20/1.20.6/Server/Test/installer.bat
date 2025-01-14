@@ -1,0 +1,1 @@
+java -jar forge-1.20.6-50.1.0-installer.jar --installServer
