@@ -13,7 +13,6 @@
 **1.** 编写一个便于删除网易模组的bat脚本, 其中 `C:\MCLDownload\` 路径会因人而异, **需要修改**
 
 ```
-:1.12.2附加: 使用此脚本需要装载1221@3@16与1222@3@16
 @echo off
 setlocal enabledelayedexpansion
 
