@@ -49,7 +49,7 @@ endlocal
 
 + 可以修改默认端口号, 在 `多人游戏 -> 直接连接` 页面输入 `12457->你想使用的端口号` 后点击连接, 重启游戏
   
-  或者前往 `\MCLDownload\Game\.minecraft\options.1.XX.txt` 中修改 `lastServer`
+  或者前往 `\MCLDownload\Game\.minecraft\options.1.13.txt` 中修改 `lastServer`
 
 <br>
 
