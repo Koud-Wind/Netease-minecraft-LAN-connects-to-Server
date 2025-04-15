@@ -1,0 +1,1 @@
+C:\myApp\Java\jdk18\bin\java.exe -jar mohist-1.18.2-146-server.jar
