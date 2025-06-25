@@ -1,1 +1,1 @@
-start https://mohistmc.cn/download?project=mohist
+start https://mohistmc.cn/download/mohist
