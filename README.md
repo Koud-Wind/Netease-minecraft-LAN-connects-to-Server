@@ -20,8 +20,16 @@ setlocal enabledelayedexpansion
 
 REM 下面是网易模组目录
 set "targetDir=C:\MCLDownload\Game\.minecraft\mods"
+set "targetDir2=C:\netease_minecraft_neoforge\mods"
 
 for %%F in ("%targetDir%\*") do (
+    set "fileName=%%~nF"
+    REM 名称末尾为@0就会删除
+    if "!fileName:~-2!"=="@0" (
+        del "%%F"
+    )
+)
+for %%F in ("%targetDir2%\*") do (
     set "fileName=%%~nF"
     REM 名称末尾为@0就会删除
     if "!fileName:~-2!"=="@0" (
@@ -51,7 +59,7 @@ endlocal
 + 模组能够自动根据网易皮肤来套用合适的人物模型 (Steve与Alex模型)
 + 模组修改了玩家TAB栏显示, 会在玩家名称旁显示皮肤头像与数字延迟
 + 模组支持正常进入其他人开放的局域网游戏房间, 不允许重连
-+ 模组仅支持网易版本 `1.12.2` `1.20` `1.21`, [旧版](https://github.com/Koud-Wind/Netease-minecraft-LAN-connects-to-Server/tree/2.1.3)支持大部分网易版本
++ 模组仅支持网易版本 `1.12.2` `1.20` `1.21` `1.21.8`, [旧版](https://github.com/Koud-Wind/Netease-minecraft-LAN-connects-to-Server/tree/2.1.3)支持大部分网易版本
 + ~~模组支持免游戏窗口开放局域网游戏房间 (尚未完成) (以`#-#`开头以`#`结尾)~~
 
 <br>
@@ -62,6 +70,7 @@ endlocal
 + `V_1_12_2 对应 1.12.2`
   `V_1_20 对应 1.20.1`
   `V_1_21 对应 1.21.0`
+  `V_1_21_8 对应 1.21.8`
 + 请勿过早运行bat文件, 否则将会停止启动游戏
 + 若想普通开放网易局域网房间, 需要在 `\MCLDownload\Game\.minecraft` 中重命名或删除开头为 `#-#` 的文件
 + 对接端口号在 `51097 ~ 51996` 之间会在房间管理中显示`拦截窗口`, 请修改为**范围以外**的端口号
@@ -75,14 +84,14 @@ endlocal
 - [Folia](https://github.com/PaperMC/Folia): 突破 Minecraft 服务端的单线程限制, 每个区块组有独立的Tick, [不适合新手](https://docs.papermc.io/folia/faq)
 - [Mohist](https://mohistmc.cn/software/mohist): 实现 Bukkit/Spigot/Paper API 的 Forge 服务器
 - [Arclight](https://arclight.izzel.io): 实现 Bukkit API 的 Forge 服务器
-- [Bungeecord](https://www.spigotmc.org/wiki/bungeecord-installation): Minecraft 反向代理服务端, 利用它将多个子服连接起来
+- [Velocity](https://papermc.io/downloads/velocity): Minecraft 反向代理服务端, 利用它将多个子服连接起来
 
 
 - [CnUsername](https://github.com/XPPlugins/CnUsername): 允许使用特定字符的玩家名称进入服务器
 - [MultiLogin](https://github.com/CaaMoe/MultiLogin): 正版与多种外置登录共存
 
 
-- [MediaPlayer](https://www.spigotmc.org/resources/119570): 允许在 Minecraft 上播放和使用各种媒体, 例如视频/直播/图片
+- [ScreenInMC](https://github.com/GZY-mingbai/ScreenInMC-Plugin): 允许在 Minecraft 上播放和使用各种媒体, 例如视频/直播/图片/VNC
 
 
 - [Mc-Map](https://mc-map.djfun.de/faq.html): 将图片转换为 Minecraft 地图以展示给其他玩家
