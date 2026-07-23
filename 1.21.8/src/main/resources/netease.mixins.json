@@ -1,0 +1,28 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.netease.mc.mod.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "plugin": "com.netease.mc.mod.mixin.NeteaseMixinPlugin",
+  "mixins": [
+    "MixinConnection",
+    "MixinEntitySelectorParser",
+    "MixinItemStackComponentizationFix",
+    "MixinMinecraftServer",
+    "MixinMinecraftSessionService",
+    "MixinSkinManager",
+    "MixinSkinTextureDownloader",
+    "MixinStringReader",
+    "MixinStringUtil",
+    "MixinYggdrasilMinecraftSessionService"
+  ],
+  "client": [
+    "MainMixin",
+    "MixinPlayerSocialManager",
+    "PlayerTabOverlayMixin"
+  ],
+  "server": [],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

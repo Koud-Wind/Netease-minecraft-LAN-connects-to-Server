@@ -1,0 +1,26 @@
+modLoader = "javafml"
+loaderVersion = "[4,)"
+license = "All Rights Reserved"
+
+[[mods]]
+modId = "netease_official"
+version = "1.21.8"
+displayName = "NeteaseOfficial"
+description = '''NeteaseMC Official Mod'''
+
+[[dependencies.netease_official]]
+modId = "neoforge"
+type = "required"
+versionRange = "[21.8.52,)"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.netease_official]]
+modId = "minecraft"
+type = "required"
+versionRange = "[1.21.8]"
+ordering = "NONE"
+side = "BOTH"
+
+[[mixins]]
+config = "netease.mixins.json"
