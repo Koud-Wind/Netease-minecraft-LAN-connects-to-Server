@@ -49,7 +49,6 @@ public class FriendPlayMod {
         NetworkHandler.networkHandler.registerAsync(2305, new ReplyOpScreenShot());
         NeoForge.EVENT_BUS.register(new GuiOpenEventHandler());
         NeoForge.EVENT_BUS.register(new PlayerEnterWorldEventHandler());
-        NeoForge.EVENT_BUS.register(new PlayerEnterWorldEventHandler());
     }
 
     public static LanGameState getLanGameStateObj() {
