@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.netease.mc.mod.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "refmap": "netease_official.refmap.json",
+  "client": [
+    "MainMixin",
+    "MixinPlayerSocialManager",
+    "PlayerTabOverlayMixin"
+  ],
+  "mixins": [
+    "MixinEntitySelectorParser",
+    "MixinSharedConstants"
+  ]
+}

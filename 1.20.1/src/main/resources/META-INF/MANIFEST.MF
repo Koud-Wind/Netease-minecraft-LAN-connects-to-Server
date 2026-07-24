@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Implementation-Title: JavaMod
+Implementation-Version: 1.20
+Specification-Vendor: NeteaseMC
+Specification-Title: netease_official
+Implementation-Timestamp: 2025-03-27T18:02:39+0800
+Specification-Version: 1
+Implementation-Vendor: NeteaseMC
+MixinConfigs: netease_official.mixins.json
+

@@ -1,0 +1,226 @@
+{
+  "com/netease/mc/mod/friendplay/FriendPlayMod": {
+    "name": "com/netease/mc/mod/friendplay/FriendPlayMod",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod;",
+        "target": "com/netease/mc/mod/friendplay/FriendPlayMod",
+        "values": {
+          "acceptedMinecraftVersions": {
+            "value": "[1.12.2]"
+          },
+          "dependencies": {
+            "value": "required-after:networkmod"
+          },
+          "modid": {
+            "value": "friendplaymod"
+          },
+          "version": {
+            "value": "1.0"
+          }
+        }
+      },
+      {
+        "type": "FIELD",
+        "name": "Lnet/minecraftforge/fml/common/SidedProxy;",
+        "target": "proxy",
+        "values": {
+          "clientSide": {
+            "value": "com.netease.mc.mod.friendplay.FriendPlayClientProxy"
+          },
+          "serverSide": {
+            "value": "com.netease.mc.mod.friendplay.FriendPlayCommonProxy"
+          }
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventHandler;",
+        "target": "preInit(Lnet/minecraftforge/fml/common/event/FMLPreInitializationEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventHandler;",
+        "target": "init(Lnet/minecraftforge/fml/common/event/FMLInitializationEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventHandler;",
+        "target": "postInit(Lnet/minecraftforge/fml/common/event/FMLPostInitializationEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventHandler;",
+        "target": "onServerStarted(Lnet/minecraftforge/fml/common/event/FMLServerStartedEvent;)V"
+      }
+    ]
+  },
+  "com/netease/mc/mod/friendplay/GuiOpenEventHandler": {
+    "name": "com/netease/mc/mod/friendplay/GuiOpenEventHandler",
+    "annotations": [
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "MainMenuOpen(Lnet/minecraftforge/client/event/GuiOpenEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "InitButtonGUI(Lnet/minecraftforge/client/event/GuiScreenEvent$InitGuiEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "ActionPerformutton(Lnet/minecraftforge/client/event/GuiScreenEvent$ActionPerformedEvent;)V",
+        "values": {
+          "priority": {
+            "type": "ENUM",
+            "value": "Lnet/minecraftforge/fml/common/eventhandler/EventPriority;/HIGH"
+          }
+        }
+      }
+    ]
+  },
+  "com/netease/mc/mod/friendplay/PlayerEnterWorldEventHandler": {
+    "name": "com/netease/mc/mod/friendplay/PlayerEnterWorldEventHandler",
+    "annotations": [
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "PlayerEnterWorld(Lnet/minecraftforge/event/entity/EntityJoinWorldEvent;)V"
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/eventhandler/SubscribeEvent;",
+        "target": "ReJoinRoom(Lnet/minecraftforge/fml/common/gameevent/TickEvent$ClientTickEvent;)V"
+      }
+    ]
+  },
+  "com/netease/mc/mod/skin/SkinHandler$3": {
+    "name": "com/netease/mc/mod/skin/SkinHandler$3",
+    "interfaces": [
+      "java/lang/Runnable"
+    ]
+  },
+  "com/netease/mc/mod/skin/SkinHandler$4": {
+    "name": "com/netease/mc/mod/skin/SkinHandler$4",
+    "interfaces": [
+      "java/lang/Runnable"
+    ]
+  },
+  "com/netease/mc/mod/skin/SkinHandler$4$1": {
+    "name": "com/netease/mc/mod/skin/SkinHandler$4$1",
+    "interfaces": [
+      "java/lang/Runnable"
+    ]
+  },
+  "com/netease/mc/mod/skin/SkinMod": {
+    "name": "com/netease/mc/mod/skin/SkinMod",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/common/Mod;",
+        "target": "com/netease/mc/mod/skin/SkinMod",
+        "values": {
+          "acceptedMinecraftVersions": {
+            "value": "[1.12.2]"
+          },
+          "dependencies": {
+            "value": "required-after:networkmod"
+          },
+          "modid": {
+            "value": "skinmod"
+          },
+          "version": {
+            "value": "1.0"
+          }
+        }
+      },
+      {
+        "type": "METHOD",
+        "name": "Lnet/minecraftforge/fml/common/Mod$EventHandler;",
+        "target": "preInit(Lnet/minecraftforge/fml/common/event/FMLPreInitializationEvent;)V"
+      }
+    ]
+  },
+  "com/netease/mc/mod/skin/coremod/SkinCore": {
+    "name": "com/netease/mc/mod/skin/coremod/SkinCore",
+    "interfaces": [
+      "net/minecraftforge/fml/relauncher/IFMLLoadingPlugin"
+    ],
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lnet/minecraftforge/fml/relauncher/IFMLLoadingPlugin$MCVersion;",
+        "target": "com/netease/mc/mod/skin/coremod/SkinCore",
+        "value": {
+          "value": ""
+        }
+      }
+    ]
+  },
+  "com/netease/mc/mod/skin/coremod/SkinCoreTransformer": {
+    "name": "com/netease/mc/mod/skin/coremod/SkinCoreTransformer",
+    "interfaces": [
+      "net/minecraft/launchwrapper/IClassTransformer"
+    ]
+  },
+
+  "com/netease/mc/core/filter/FilterServerTransformer$enableEncryptionTransformer": {
+    "name": "com/netease/mc/core/filter/FilterServerTransformer$enableEncryptionTransformer",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lcom/netease/mc/core/filter/BaseAsmTransformer$RegisterTransformer;",
+        "target": "com/netease/mc/core/filter/FilterServerTransformer$enableEncryptionTransformer",
+        "values": {
+          "className": {
+            "value": "net.minecraft.network.NetworkManager"
+          },
+          "desc": {
+            "value": "(Ljavax/crypto/SecretKey;)V"
+          },
+          "mcpName": {
+            "value": "enableEncryption"
+          },
+          "oldInterface": {
+            "type": "CLASS",
+            "value": "Lcom/netease/mc/mod/filter/old/INetworkManagerOld;"
+          },
+          "srgName": {
+            "value": "func_150727_a"
+          }
+        }
+      }
+    ]
+  },
+  "com/netease/mc/core/filter/FilterServerTransformer$getNetworkCompressionThresholdTransformer": {
+    "name": "com/netease/mc/core/filter/FilterServerTransformer$getNetworkCompressionThresholdTransformer",
+    "annotations": [
+      {
+        "type": "CLASS",
+        "name": "Lcom/netease/mc/core/filter/BaseAsmTransformer$RegisterTransformer;",
+        "target": "com/netease/mc/core/filter/FilterServerTransformer$getNetworkCompressionThresholdTransformer",
+        "values": {
+          "className": {
+            "value": "net.minecraft.server.MinecraftServer"
+          },
+          "desc": {
+            "value": "()I"
+          },
+          "mcpName": {
+            "value": "getNetworkCompressionThreshold"
+          },
+          "oldInterface": {
+            "type": "CLASS",
+            "value": "Lcom/netease/mc/mod/filter/old/IMinecraftServerOld;"
+          },
+          "srgName": {
+            "value": "func_175577_aI"
+          }
+        }
+      }
+    ]
+  }
+}
