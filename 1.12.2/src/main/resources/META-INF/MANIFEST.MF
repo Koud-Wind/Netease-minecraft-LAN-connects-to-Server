@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+FMLCorePluginContainsFMLMod: true
+FMLCorePlugin: com.netease.mc.mod.plugin.NeteaseModPlugin
