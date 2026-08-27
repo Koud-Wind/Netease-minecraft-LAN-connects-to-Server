@@ -12,42 +12,13 @@
 
 **0.** 启动服务端, 从 `server.properties` 或 `命令行后台` 得知服务端开放的端口号
 
-**1.** 编写一个便于删除网易模组的bat脚本, 其中 `C:\MCLDownload\` 路径会因人而异, **需要修改**
+**1.** 进入 `\MCLDownload\cache\game` 路径, 其中像 `V_1_??` 这样命名的文件夹能够在进入对应版本游戏时将这个文件夹内的文件覆盖到 `\MCLDownload\Game\.minecraft\` , 所以需要在`\MCLDownload\cache\game\V_1_??\`中新建一个`mods`文件夹, 并放入**在这里下载好的模组`(比如1201@3@16.jar)`**
 
-```
-@echo off
-setlocal enabledelayedexpansion
+**2.** 直接运行脚本，按照指示启动游戏并等待成功提示
 
-REM 下面是网易模组目录
-set "targetDir=C:\MCLDownload\Game\.minecraft\mods"
-set "targetDir2=C:\netease_minecraft_neoforge\mods"
+**3.** 进入 `\MCLDownload\Game\.minecraft` 路径 (`1.21.8` 以上为 `\netease_minecraft_neoforge`), 找到并编辑 `#-#netease.toml` 文件 (`1.12.2` 为 `#-#netease.cfg`), 修改 `bridgePort` 选项, 再次启动局域网游戏, 并等待网易玩家管理页面出现
 
-for %%F in ("%targetDir%\*") do (
-    set "fileName=%%~nF"
-    REM 名称末尾为@0就会删除
-    if "!fileName:~-2!"=="@0" (
-        del "%%F"
-    )
-)
-for %%F in ("%targetDir2%\*") do (
-    set "fileName=%%~nF"
-    REM 名称末尾为@0就会删除
-    if "!fileName:~-2!"=="@0" (
-        del "%%F"
-    )
-)
-
-endlocal
-
-```
-
-**2.** 进入 `\MCLDownload\cache\game` 路径, 其中像 `V_1_??` 这样命名的文件夹能够在进入对应版本游戏时将这个文件夹内的文件覆盖到 `\MCLDownload\Game\.minecraft\` , 所以需要在`\MCLDownload\cache\game\V_1_??\`中新建一个`mods`文件夹, 并放入**在这里下载好的模组`(比如1201@3@16.jar)`**
-
-**3.** 启动游戏, 当网易进度条加载到 `90%` 时运行你修改好的bat文件
-
-**4.** 进入 `\MCLDownload\Game\.minecraft` 路径 (`1.21.8` 以上为 `\netease_minecraft_neoforge`), 找到并编辑 `#-#netease.toml` 文件 (`1.12.2` 为 `#-#netease.cfg`), 修改 `bridgePort` 选项, 再次启动局域网游戏, 并等待网易玩家管理页面出现
-
-**5.** 当你进入地图后, 可以直接退出地图, 从多人游戏中进入服务器
+**4.** 当你进入地图后, 可以直接退出地图, 从多人游戏中进入服务器
 
 <br>
 
@@ -75,7 +46,6 @@ endlocal
   `V_1_21 对应 1.21.0`
   `V_1_21_8 对应 1.21.8`
   `V_1_21_10 对应 1.21.10`
-+ 请勿过早运行bat文件, 否则将会停止启动游戏
 + 若想普通开放网易局域网房间, 需要修改配置项 `bridgePort` 为范围外的值
 + 对接端口号在 `51097 ~ 51996` 之间会在房间管理中显示`拦截窗口`, 请修改为**范围以外**的端口号
 + 对接服务端时, 若需要重启网易客户端, 无需关闭服务端
