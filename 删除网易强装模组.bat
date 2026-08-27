@@ -1,4 +1,6 @@
 @echo off
+chcp 65001 >nul
+setlocal enabledelayedexpansion
 
 REM 从注册表查询游戏目录
 for /f "usebackq tokens=2*" %%A in (`reg query "HKCU\Software\Netease\MCLauncher" /v "DownloadPath" 2^>nul`) do (
@@ -6,7 +8,7 @@ for /f "usebackq tokens=2*" %%A in (`reg query "HKCU\Software\Netease\MCLauncher
     REM 提取父目录
     for %%i in ("%%B") do set "parent=%%~dpi"
     REM 拼接为NeoForge游戏目录
-    set "neop_panfu=!parent!netease_minecraft_neoforge"
+    set "neo_panfu=!parent!netease_minecraft_neoforge"
 )
 
 REM 未找到
@@ -26,6 +28,9 @@ echo.
 REM 定义两个目录（注意路径结构不同）
 set "dir1=%panfu%\Game\.minecraft\mods"
 set "dir2=%neo_panfu%\mods"
+
+if not exist "%dir1%" mkdir "%dir1%" 2>nul
+if not exist "%dir2%" mkdir "%dir2%" 2>nul
 
 REM 在两个目录创建监测文件
 echo 3401765#JuwLBFt>"%dir1%\JuwLBFt.log"
@@ -59,7 +64,7 @@ for /l %%i in (1,1,900) do (
     if defined processed goto afterLoop
     
     REM 等待1秒后继续检测
-    Ping -n 1 127.1>nul
+    timeout /t 1 /nobreak >nul
 )
 
 :afterLoop
