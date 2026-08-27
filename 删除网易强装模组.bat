@@ -26,7 +26,7 @@ echo.
 
 REM 定义两个目录（注意路径结构不同）
 set "dir1=%panfu%\Game\.minecraft\mods"
-set "dir2=%neo_panfu%\.minecraft\mods"
+set "dir2=%neo_panfu%\mods"
 
 REM 在两个目录创建监测文件
 echo 3401765#JuwLBFt>"%dir1%\JuwLBFt.log"
