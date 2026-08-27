@@ -1,5 +1,4 @@
 @echo off
-setlocal enabledelayedexpansion
 
 REM 从注册表查询游戏目录
 for /f "usebackq tokens=2*" %%A in (`reg query "HKCU\Software\Netease\MCLauncher" /v "DownloadPath" 2^>nul`) do (
@@ -68,5 +67,3 @@ echo.
 echo 运行结束
 pause > nul
 exit /b
-
-endlocal
