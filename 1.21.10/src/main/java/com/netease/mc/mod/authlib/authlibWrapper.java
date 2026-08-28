@@ -23,7 +23,7 @@ public class authlibWrapper {
         return (c >= '0' && c <= '9') || (c >= 'A' && c <= 'Z') || ((c >= 'a' && c <= 'z') || c == '_' || c == '-' || c == '.' || c == '+' || (c > 19968 && c < 40891));
     }
 
-            public static void joinServerWrapper(YggdrasilMinecraftSessionService service, UUID uuid, String authenticationToken, String serverId) throws AuthenticationException, javax.naming.AuthenticationException {
+    public static void joinServerWrapper(YggdrasilMinecraftSessionService service, UUID uuid, String authenticationToken, String serverId) throws AuthenticationException, javax.naming.AuthenticationException {
         try {
             if (GameState.userPropertiesEx == null || GameState.userPropertiesEx.GameType != 2) {
                 return;
