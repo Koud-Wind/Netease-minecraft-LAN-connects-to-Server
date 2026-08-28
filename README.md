@@ -14,7 +14,7 @@
 
 **1.** 进入 `\MCLDownload\cache\game` 路径, 其中像 `V_1_??` 这样命名的文件夹能够在进入对应版本游戏时将这个文件夹内的文件覆盖到 `\MCLDownload\Game\.minecraft\` , 所以需要在`\MCLDownload\cache\game\V_1_??\`中新建一个`mods`文件夹, 并放入**在这里下载好的模组`(比如1201@3@16.jar)`**
 
-**2.** 右键以管理员模式运行脚本，按照指示启动游戏并等待成功提示
+**2.** 运行脚本 `删除网易强装模组.bat` 后并启动游戏
 
 **3.** 进入 `\MCLDownload\Game\.minecraft` 路径 (`1.21.8` 以上为 `\netease_minecraft_neoforge`), 找到并编辑 `#-#netease.toml` 文件 (`1.12.2` 为 `#-#netease.cfg`), 修改 `bridgePort` 选项, 再次启动局域网游戏, 并等待网易玩家管理页面出现
 

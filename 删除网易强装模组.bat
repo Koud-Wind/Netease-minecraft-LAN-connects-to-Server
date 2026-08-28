@@ -1,73 +1,56 @@
 @echo off
 setlocal enabledelayedexpansion
+chcp 65001 > nul
 
-REM 从注册表查询游戏目录
-for /f "usebackq tokens=2*" %%A in (`reg query "HKCU\Software\Netease\MCLauncher" /v "DownloadPath" 2^>nul`) do (
-    set "panfu=%%B"
-    REM 提取父目录
-    for %%i in ("%%B") do set "parent=%%~dpi"
-    REM 拼接为NeoForge游戏目录
-    set "neo_panfu=!parent!netease_minecraft_neoforge"
+REM 目录设置
+for /f "usebackq tokens=2*" %%A in (`reg query "HKCU\Software\Netease\MCLauncher" /v "DownloadPath" 2^> nul`) do (
+    set "forge_path=%%B"
+    for %%i in ("%%B") do set "neoforge_path=%%~dpinetease_minecraft_neoforge"
 )
 
-REM 未找到
-if defined panfu (
-    echo.>nul
-) else (
-    echo 找不到，网易我的世界启动器游戏安装位置。
-    pause>nul
-    exit /b
+if not defined forge_path (
+    echo 无法找到网易我的世界启动器游戏安装位置
+    goto end
 )
 
-:CL
-echo.
-echo.运行中...（点启动游戏）
-echo.
+set "forge_mods=!forge_path!\Game\.minecraft\mods"
+set "neoforge_mods=!neoforge_path!\mods"
+if not exist "%forge_mods%" mkdir "%forge_mods%"
+if not exist "%neoforge_mods%" mkdir "%neoforge_mods%"
 
-REM 定义两个目录（注意路径结构不同）
-set "dir1=%panfu%\Game\.minecraft\mods"
-set "dir2=%neo_panfu%\mods"
+echo forge: !forge_mods!
+echo neoforge: !neoforge_mods!
+echo [!time!] 已开始监听目录...
 
-if not exist "%dir1%" mkdir "%dir1%" 2>nul
-if not exist "%dir2%" mkdir "%dir2%" 2>nul
+REM 创建监听文件
 
-REM 在两个目录创建监测文件
-echo 3401765#JuwLBFt>"%dir1%\JuwLBFt.log"
-echo 3401765#JuwLBFt>"%dir2%\JuwLBFt.log"
+:loop
+type nul > "%forge_mods%\replace_event"
+type nul > "%neoforge_mods%\replace_event"
+set "is_replace="
 
-REM 循环检测，最多900次
-for /l %%i in (1,1,900) do (
-    set "processed="
-    
-    REM 检测目录1的 log 是否被删
-    if not exist "!dir1!\JuwLBFt.log" (
-        echo 检测到\mods目录的log被删，删除该目录下@0文件...
-        for %%F in ("!dir1!\*") do (
-            set "fname=%%~nF"
-            if "!fname:~-2!"=="@0" del "%%F"
-        )
-        set processed=1
-    )
-    
-    REM 检测目录2的 log 是否被删
-    if not exist "!dir2!\JuwLBFt.log" (
-        echo 检测到mods目录的log被删，删除该目录下@0文件...
-        for %%F in ("!dir2!\*") do (
-            set "fname=%%~nF"
-            if "!fname:~-2!"=="@0" del "%%F"
-        )
-        set processed=1
-    )
-    
-    REM 如果处理过任意一个，跳出循环
-    if defined processed goto afterLoop
-    
-    REM 等待1秒后继续检测
-    timeout /t 1 /nobreak >nul
+:loop2
+if not exist "!forge_mods!\replace_event" (
+    for %%F in ("!forge_mods!\*@0.*") do if exist "%%F" del "%%F"
+    set "is_replace=1"
+    echo [!time!] 已删除网易 forge 路径下的@0模组
 )
 
-:afterLoop
-echo.
-echo 运行结束
-pause > nul
+if not exist "!neoforge_mods!\replace_event" (
+    for %%F in ("!neoforge_mods!\*@0.*") do if exist "%%F" del "%%F"
+    set "is_replace=1"
+    echo [!time!] 已删除网易 neoforge 路径下的@0模组
+)
+
+REM 可将 loop 改为 end 避免持续监听
+if defined is_replace goto loop
+
+REM 延时
+timeout /t 2 /nobreak > nul
+goto loop2
+
+
+:end
+del /q "!forge_mods!\replace_event" "!neoforge_mods!\replace_event" 2> nul
+pause
 exit /b
