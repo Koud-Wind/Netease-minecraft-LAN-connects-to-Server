@@ -18,7 +18,7 @@ public abstract class MixinYggdrasilMinecraftSessionService {
         cir.setReturnValue(null);
     }
 
-            @Inject(method = {"joinServer"}, at = {@At("HEAD")}, cancellable = true, remap = false)
+    @Inject(method = {"joinServer"}, at = {@At("HEAD")}, cancellable = true, remap = false)
     private void netease$joinServer(UUID uuid, String authenticationToken, String serverId, CallbackInfo ci) throws AuthenticationException, javax.naming.AuthenticationException {
         YggdrasilMinecraftSessionService self = (YggdrasilMinecraftSessionService)(Object) this;
         authlibWrapper.joinServerWrapper(self, uuid, authenticationToken, serverId);

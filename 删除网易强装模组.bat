@@ -14,19 +14,15 @@ if not defined forge_path (
 )
 
 set "forge_mods=!forge_path!\Game\.minecraft\mods"
-set "neoforge_mods=!neoforge_path!\mods"
 if not exist "%forge_mods%" mkdir "%forge_mods%"
-if not exist "%neoforge_mods%" mkdir "%neoforge_mods%"
 
 echo forge: !forge_mods!
-echo neoforge: !neoforge_mods!
 echo [!time!] 已开始监听目录...
 
 REM 创建监听文件
 
 :loop
 type nul > "%forge_mods%\replace_event"
-type nul > "%neoforge_mods%\replace_event"
 set "is_replace="
 
 :loop2
@@ -34,12 +30,6 @@ if not exist "!forge_mods!\replace_event" (
     for %%F in ("!forge_mods!\*@0.*") do if exist "%%F" del "%%F"
     set "is_replace=1"
     echo [!time!] 已删除网易 forge 路径下的@0模组
-)
-
-if not exist "!neoforge_mods!\replace_event" (
-    for %%F in ("!neoforge_mods!\*@0.*") do if exist "%%F" del "%%F"
-    set "is_replace=1"
-    echo [!time!] 已删除网易 neoforge 路径下的@0模组
 )
 
 REM 可将 loop 改为 end 避免持续监听
@@ -51,6 +41,6 @@ goto loop2
 
 
 :end
-del /q "!forge_mods!\replace_event" "!neoforge_mods!\replace_event" 2> nul
+del /q "!forge_mods!\replace_event" 2> nul
 pause
 exit /b
