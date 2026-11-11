@@ -16,7 +16,7 @@
 
 **2.** 运行脚本 `删除网易强装模组.bat` 后并启动游戏
 
-**3.** 进入 `\MCLDownload\Game\.minecraft` 路径 (`1.21.8` 以上为 `\netease_minecraft_neoforge`), 找到并编辑 `#-#netease.toml` 文件 (`1.12.2` 为 `#-#netease.cfg`), 修改 `bridgePort` 选项, 再次启动局域网游戏, 并等待网易玩家管理页面出现
+**3.** 进入 `\MCLDownload\Game\.minecraft` 路径, 找到并编辑 `#-#netease.toml` 文件 (`1.12.2` 为 `#-#netease.cfg`), 修改 `bridgePort` 选项, 再次启动局域网游戏, 并等待网易玩家管理页面出现
 
 **4.** 当你进入地图后, 可以直接退出地图, 从多人游戏中进入服务器
 
